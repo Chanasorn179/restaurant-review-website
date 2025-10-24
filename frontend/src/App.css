@@ -1,0 +1,955 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap");
+
+:root {
+  --accent: #5b67ff;
+  --accent-dark: #3e48e6;
+  --bg-light: #f8f9fb;
+  --bg-dark: #121212;
+  --card-dark: #1f1f1f;
+  --text-light: #333;
+  --text-dark: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  font-family: "Prompt", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* 🌟 HEADER */
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  backdrop-filter: blur(10px);
+  color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* 🔍 SEARCH SECTION */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  margin-top: -2.8rem;
+}
+
+.search-container {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 550px;
+  width: 90%;
+  transition: background 0.4s ease;
+}
+
+/* 🧭 Search Bar Container */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #ddd;
+  border-radius: 50px;
+  overflow: hidden;
+  /* ✅ ตัดทุกมุมที่เลยออกมา */
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar:focus-within {
+  border-color: #5b67ff;
+  box-shadow: 0 0 0 3px rgba(91, 103, 255, 0.15);
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  /* ❌ เอาขอบออก */
+  outline: none;
+  /* ❌ เอาเส้น focus เริ่มต้นออก */
+  background: transparent;
+  /* ✅ โปร่งใสให้กลืนกับ container */
+  font-size: 1rem;
+  color: #333;
+  min-width: 0;
+  /* 🧭 ป้องกันเบี้ยวเมื่อจอแคบ */
+}
+
+.search-input-wrapper .search-icon {
+  margin-left: 1rem;
+  opacity: 0.6;
+  font-size: 1rem;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+/* 🔹 ปุ่มค้นหา */
+.search-bar button {
+  background: linear-gradient(135deg, #5b67ff, #7985ff);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  margin-left: 4rem;
+  /* 🟡 เพิ่มตรงนี้ */
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: linear-gradient(135deg, #4c58e8, #6b76f5);
+}
+
+.search-bar button:active {
+  transform: scale(0.97);
+}
+
+.search-bar button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+input:focus,
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode .search-bar button {
+  background: linear-gradient(135deg, #6b7bff, #8594ff);
+  color: #fff;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .search-bar input {
+  color: #eee;
+}
+
+body.dark-mode .search-bar input::placeholder {
+  color: #aaa;
+}
+
+body.dark-mode .search-bar {
+  background: #2b2b2b;
+  border: 1.5px solid #444;
+}
+
+body.dark-mode .search-bar:focus-within {
+  border-color: #8594ff;
+  /* ✅ ขอบฟ้าอ่อนเมื่อโฟกัส */
+  box-shadow: 0 0 0 3px rgba(133, 148, 255, 0.25);
+}
+
+/* ☀️ Light Mode */
+body:not(.dark-mode) .search-input-wrapper input {
+  background: #fff;
+  color: #333;
+}
+
+body:not(.dark-mode) .search-bar button {
+  background: linear-gradient(135deg, #5b67ff, #7985ff);
+}
+
+body:not(.dark-mode) .search-bar button:hover {
+  background: linear-gradient(135deg, #4c58e8, #6b76f5);
+}
+
+/* 🌙 DARK MODE */
+body.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #30336b, #4b4c8a);
+}
+
+body.dark-mode .search-container {
+  background: rgba(40, 40, 40, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .search-input-wrapper input {
+  background: rgba(40, 40, 40, 0.85);
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-mode .search-input-wrapper input:focus {
+  border-color: #6b7bff;
+  box-shadow: 0 0 0 3px rgba(107, 123, 255, 0.3);
+}
+
+body.dark-mode .search-bar button {
+  background: #6b7bff;
+}
+
+body.dark-mode .search-bar button:hover {
+  background: #8594ff;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+}
+
+/* FILTER PANEL */
+.filter-panel {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+.filter-group select {
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: white;
+  transition: all 0.25s ease;
+}
+
+/* 🍽️ CARD GRID */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding: 0 1.5rem;
+}
+
+/* 🧊 CARD */
+.restaurant-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.restaurant-card:hover .restaurant-image {
+  transform: scale(1.05);
+}
+
+.restaurant-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.restaurant-card:hover::after {
+  opacity: 1;
+}
+
+.restaurant-info {
+  padding: 1rem;
+}
+
+.restaurant-info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.category {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.desc {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  max-height: 3.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rating-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.rating-row .star {
+  color: #f5b301;
+  margin-right: 5px;
+}
+
+/* 🌙 Dark Mode Card */
+body.dark-mode .restaurant-card {
+  background: var(--card-dark);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .restaurant-info h3 {
+  color: var(--text-dark);
+}
+
+body.dark-mode .category {
+  color: #bbb;
+}
+
+body.dark-mode .desc {
+  color: #ccc;
+}
+
+body.dark-mode .restaurant-card::after {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+}
+
+body.dark-mode .restaurant-image {
+  filter: brightness(0.8);
+}
+
+/* 🌗 Floating Toggle Button (คงไว้ตามเดิมของคุณ) */
+.theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  padding: 0.45rem 0.6rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .theme-toggle {
+  background: rgba(40, 40, 40, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #5b67ff, #8b90ff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  transition: background 0.4s ease;
+}
+
+.slider .icon {
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.slider .icon.sun {
+  opacity: 1;
+  color: #fff;
+}
+
+.slider .icon.moon {
+  opacity: 0.4;
+  color: #fff;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(30px);
+}
+
+.switch input:checked + .slider {
+  background: rgba(35, 35, 35, 0.8);
+}
+
+.switch input:checked + .slider .icon.sun {
+  opacity: 0.4;
+}
+
+.switch input:checked + .slider .icon.moon {
+  opacity: 1;
+}
+
+/* Hover */
+.theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: rgba(60, 60, 60, 0.6);
+}
+
+/* 📱 Toggle Responsive */
+@media (max-width: 600px) {
+  .switch {
+    width: 50px;
+    height: 26px;
+  }
+
+  .slider::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  .slider .icon {
+    font-size: 1rem;
+  }
+}
+
+/* 🧭 Section กลาง */
+.top-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  /* ระยะห่าง Search กับ Filter */
+}
+
+/* 🧭 Filter Panel */
+.filter-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* 📱 รองรับจอเล็ก */
+  gap: 1rem 2rem;
+  /* ระยะห่างแนวนอน/ตั้ง */
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  max-width: 950px;
+  margin: 1.5rem auto;
+}
+
+/* 🔸 แต่ละ group */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 220px;
+  /* ให้กว้างเท่ากัน */
+}
+
+.filter-group label {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-light);
+}
+
+/* 🔹 ช่อง select */
+.filter-group select {
+  flex: 1;
+  padding: 0.5rem 0.8rem;
+  border-radius: 12px;
+  border: none;
+  background: white;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+
+.filter-group select:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.filter-group select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* 🌙 Dark mode */
+body.dark-mode .filter-panel {
+  background: rgba(30, 30, 30, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .filter-group label {
+  color: var(--text-dark);
+}
+
+body.dark-mode .filter-group select {
+  background: #1e1e1e;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .filter-panel {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group select {
+    width: 100%;
+  }
+}
+
+.review-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ✍️ ปุ่มเขียนรีวิว */
+.write-review-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.write-review-btn:hover {
+  background: linear-gradient(135deg, #4c58e8, #6b76f5);
+}
+
+.write-review-btn:active {
+  transform: scale(0.96);
+}
+
+/* 📖 ปุ่มดูรีวิวทั้งหมด */
+.view-all-reviews-btn {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.view-all-reviews-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.view-all-reviews-btn:active {
+  transform: scale(0.96);
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode .view-all-reviews-btn {
+  border-color: #8594ff;
+  color: #8594ff;
+}
+
+body.dark-mode .view-all-reviews-btn:hover {
+  background: #8594ff;
+  color: #121212;
+}
+
+/* 📦 Review Form Container */
+.review-form {
+  background: var(--bg-light);
+  color: var(--text-light);
+  padding: 1.8rem;
+  border-radius: 18px;
+  max-width: 480px;
+  margin: 1.5rem auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode .review-form {
+  background: var(--card-dark);
+  color: var(--text-dark);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+}
+
+/* 🏷️ หัวข้อ */
+.review-form h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.4rem;
+  background: linear-gradient(135deg, #5b67ff, #8b90ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+}
+
+/* ✍️ กล่องฟอร์มแต่ละช่อง */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-light);
+}
+
+body.dark-mode .form-group label {
+  color: var(--text-dark);
+}
+
+/* 🧊 ช่องกรอก input / textarea / select */
+.review-form input,
+.review-form textarea,
+.review-form select {
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.review-form input::placeholder,
+.review-form textarea::placeholder {
+  color: #999;
+}
+
+/* 🌙 Dark Mode Input */
+body.dark-mode .review-form input,
+body.dark-mode .review-form textarea,
+body.dark-mode .review-form select {
+  border: 1px solid #333;
+  background: #262626;
+  color: #eee;
+}
+
+body.dark-mode .review-form input::placeholder,
+body.dark-mode .review-form textarea::placeholder {
+  color: #999;
+}
+
+.review-form input:focus,
+.review-form textarea:focus,
+.review-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(91, 103, 255, 0.35);
+  background: #f5f5ff;
+}
+
+/* 🌙 Dark Mode Focus */
+body.dark-mode .review-form input:focus,
+body.dark-mode .review-form textarea:focus,
+body.dark-mode .review-form select:focus {
+  background: #2c2c2c;
+}
+
+/* 📝 textarea */
+.review-form textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+/* 📊 ตัวนับอักษร */
+.char-count {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+body.dark-mode .char-count {
+  color: #aaa;
+}
+
+/* 🚨 Error */
+.error {
+  color: #ff5e5e;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.invalid {
+  border-color: #ff7b7b !important;
+  box-shadow: 0 0 0 2px rgba(255, 123, 123, 0.25);
+}
+
+/* 🌟 ปุ่มส่งรีวิว */
+.review-form button[type="submit"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
+  width: 100%;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.review-form button[type="submit"]:hover {
+  background: linear-gradient(135deg, #4c58e8, #6b76f5);
+}
+
+.review-form button[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+.review-form button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 📦 Overlay สำหรับฟอร์มรีวิว */
+.review-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .review-form {
+    padding: 1.2rem;
+    max-width: 90%;
+  }
+}
+
+/* ❤️ ปุ่มหัวใจ */
+.favorite-btn {
+  font-size: 1.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.25s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+}
+
+.favorite-btn.active {
+  color: #ef4444;
+  /* สีแดงหัวใจ */
+}
+
+/* 📝 Review List Container */
+.review-list {
+  margin-top: 0.5rem;
+}
+
+/* 🧊 Review Item Card */
+.review-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.review-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 🪶 Header (ชื่อ + ดาว) */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.review-rating {
+  font-size: 1.2rem;
+  color: #fbbf24;
+  /* สีทอง */
+  letter-spacing: 1px;
+}
+
+/* 💬 ข้อความคอมเมนต์ */
+.review-comment {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  white-space: pre-wrap;
+}
+
+/* 📅 วันที่ */
+.review-date {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* 🌙 Dark Mode Review Card */
+body.dark-mode .review-item {
+  background: var(--card-dark);
+  border-color: #2e2e2e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+}
+
+body.dark-mode .reviewer-name {
+  color: #8b90ff;
+}
+
+body.dark-mode .review-comment {
+  color: var(--text-dark);
+}
+
+body.dark-mode .review-date {
+  color: #aaa;
+}
+
+/* 🖱️ Hover ในโหมดมืด */
+body.dark-mode .review-item:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  transform: translateY(-4px);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .review-item {
+    padding: 0.9rem;
+  }
+
+  .reviewer-name {
+    font-size: 0.95rem;
+  }
+
+  .review-rating {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1761313102012,
+    "restaurantId": 2,
+    "userName": "ชิเอล",
+    "rating": 5,
+    "comment": "อร่อยยมากก",
+    "visitDate": "2025-10-24",
+    "createdAt": "2025-10-24T13:38:22.012Z"
+  },
+  {
+    "id": 1761314266621,
+    "restaurantId": 2,
+    "userName": "วาย",
+    "rating": 5,
+    "comment": "อร่อยมากก ฉันชอบบ",
+    "visitDate": "2025-10-24",
+    "createdAt": "2025-10-24T13:57:46.621Z"
+  },
+  {
+    "id": 1761316599098,
+    "restaurantId": 4,
+    "userName": "ชิเอล",
+    "rating": 5,
+    "comment": "ฉันอยากกินมากก หวังว่าจะได้เข้าไปกินในซักวัน",
+    "visitDate": "2025-10-24",
+    "createdAt": "2025-10-24T14:36:39.098Z"
+  }
+]
