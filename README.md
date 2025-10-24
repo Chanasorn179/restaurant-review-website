@@ -52,12 +52,15 @@ npm run dev
 ## Screenshots
 ### หน้าแรก
 !<img src="screenshots/Home_Dark.png" alt="Home" width="600"/>
+!<img src="screenshots/Home_Light.png.png" alt="Home" width="600"/>
 
 ### รายละเอียดร้าน
-![Detail](screenshots/detail.png)
+!<img src="screenshots/Detail_Dark.png" alt="Home" width="600"/>
+!<img src="screenshots/Detail_Light.png" alt="Home" width="600"/>
 
 ### ฟอร์มรีวิว
-![Review](screenshots/review-form.png)
+!<img src="screenshots/Write_Review.png" alt="Home" width="600"/>
+!<img src="screenshots/Review.png" alt="Home" width="600"/>
 
 ## ผู้พัฒนา
 - นาย ชนสรณ์ บุตรถา
