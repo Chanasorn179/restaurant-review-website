@@ -29,19 +29,19 @@
 ## วิธีติดตั้งและรัน
 
 ### Backend
-\`\`\`bash
+```bash
 cd backend
 npm install
 cp .env.example .env
 npm run dev
-\`\`\`
+```
 
 ### Frontend
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
 ## API Endpoints
 - GET `/api/restaurants` - ดึงรายการร้านทั้งหมด
@@ -49,19 +49,22 @@ npm run dev
 - POST `/api/reviews` - เพิ่มรีวิว
 - GET `/api/stats` - ดึงสถิติ
 
-## Screenshots
-### หน้าแรก
-!<img src="screenshots/Home_Dark.png" alt="Home" width="600"/>
-!<img src="screenshots/Home_Light.png.png" alt="Home" width="600"/>
+# Screenshots
+### หน้าหลัก
+<img src="screenshots/Home_Dark.png" alt="Home" width="600"/>
+<img src="screenshots/Home_Light.png" alt="Home" width="600"/>
 
+--- 
 ### รายละเอียดร้าน
-!<img src="screenshots/Detail_Dark.png" alt="Home" width="600"/>
-!<img src="screenshots/Detail_Light.png" alt="Home" width="600"/>
+<img src="screenshots/Detail_Dark.png" alt="Home" width="600"/>
+<img src="screenshots/Detail_Light.png" alt="Home" width="600"/>
 
+--- 
 ### ฟอร์มรีวิว
-!<img src="screenshots/Write_Review.png" alt="Home" width="600"/>
-!<img src="screenshots/Review.png" alt="Home" width="600"/>
+<img src="screenshots/Write_Review.png" alt="Home" width="600"/>
+<img src="screenshots/Review.png" alt="Home" width="600"/>
 
+--- 
 ## ผู้พัฒนา
 - นาย ชนสรณ์ บุตรถา
 - 67543210025-2
